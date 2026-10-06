@@ -14,14 +14,20 @@ export default function PanoramaViewer({ title, url, onClose }: Props) {
   const container = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    if (!container.current) return
-    const viewer = new Viewer({
-      container: container.current,
-      panorama: url === '/src/panoramas/sphere.jpg' ? sphere : url,
-      navbar: ['zoom', 'move', 'fullscreen'],
-      defaultZoomLvl: 30,
+    let viewer: Viewer | undefined
+    const frame = requestAnimationFrame(() => {
+      if (!container.current) return
+      viewer = new Viewer({
+        container: container.current,
+        panorama: url === '/src/panoramas/sphere.jpg' ? sphere : url,
+        navbar: ['zoom', 'move', 'fullscreen'],
+        defaultZoomLvl: 30,
+      })
     })
-    return () => viewer.destroy()
+    return () => {
+      cancelAnimationFrame(frame)
+      viewer?.destroy()
+    }
   }, [url])
 
   useEffect(() => {
