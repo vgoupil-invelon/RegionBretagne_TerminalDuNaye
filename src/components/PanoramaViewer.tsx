@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react'
 import { Viewer } from '@photo-sphere-viewer/core'
 import '@photo-sphere-viewer/core/index.css'
 import { X } from 'lucide-react'
+import sphere from '../panoramas/sphere.jpg'
 
 interface Props {
   title: string
@@ -16,7 +17,7 @@ export default function PanoramaViewer({ title, url, onClose }: Props) {
     if (!container.current) return
     const viewer = new Viewer({
       container: container.current,
-      panorama: url,
+      panorama: url === '/src/panoramas/sphere.jpg' ? sphere : url,
       navbar: ['zoom', 'move', 'fullscreen'],
       defaultZoomLvl: 30,
     })
