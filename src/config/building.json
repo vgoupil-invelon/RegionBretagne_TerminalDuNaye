@@ -1,0 +1,37 @@
+{
+  "projectName": "Terminal du Naye",
+  "partnerLogos": [
+    { "name": "Partenaire A", "url": "https://placehold.co/120x40?text=Logo+A" },
+    { "name": "Partenaire B", "url": "https://placehold.co/120x40?text=Logo+B" }
+  ],
+  "floors": [
+    {
+      "id": "rdc",
+      "name": "Rez-de-chaussée",
+      "planImage": "https://placehold.co/800x600?text=Plan+RDC",
+      "pois": [
+        {
+          "id": "poi-1",
+          "title": "Accueil principal",
+          "x": 35,
+          "y": 50,
+          "panoramaUrl": "https://photo-sphere-viewer-data.netlify.app/assets/sphere.jpg"
+        }
+      ]
+    },
+    {
+      "id": "etage-1",
+      "name": "Étage 1",
+      "planImage": "https://placehold.co/800x600?text=Plan+Etage+1",
+      "pois": [
+        {
+          "id": "poi-2",
+          "title": "Salle de réunion A",
+          "x": 60,
+          "y": 25,
+          "panoramaUrl": "https://photo-sphere-viewer-data.netlify.app/assets/sphere.jpg"
+        }
+      ]
+    }
+  ]
+}
