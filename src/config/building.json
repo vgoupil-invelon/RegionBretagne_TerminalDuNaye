@@ -15,7 +15,7 @@
           "title": "Accueil principal",
           "x": 35,
           "y": 50,
-          "panoramaUrl": "https://photo-sphere-viewer-data.netlify.app/assets/sphere.jpg"
+          "panoramaUrl": "/src/panoramas/sphere.jpg"
         }
       ]
     },
@@ -29,7 +29,7 @@
           "title": "Salle de réunion A",
           "x": 60,
           "y": 25,
-          "panoramaUrl": "https://photo-sphere-viewer-data.netlify.app/assets/sphere.jpg"
+          "panoramaUrl": "/src/panoramas/sphere.jpg"
         }
       ]
     }
