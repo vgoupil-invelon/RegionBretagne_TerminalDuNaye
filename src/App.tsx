@@ -4,6 +4,16 @@ import building from './config/building.json'
 import type { Building, Poi } from './types'
 import PanoramaViewer from './components/PanoramaViewer'
 
+// Tous les fichiers de src/floors sont inclus automatiquement au build
+const floorImages = import.meta.glob('./floors/*.{jpg,jpeg,png,webp,svg}', {
+  eager: true,
+  query: '?url',
+  import: 'default',
+}) as Record<string, string>
+
+const resolveFloorImage = (path: string) =>
+  floorImages[path.replace(/^\/src\//, './')] ?? path
+
 const data = building as Building
 
 export default function App() {
@@ -51,7 +61,7 @@ export default function App() {
         <main className="plan-area">
           {floor && (
             <div className="plan">
-              <img src={floor.planImage} alt={`Plan : ${floor.name}`} draggable={false} />
+              <img src={resolveFloorImage(floor.planImage)} alt={`Plan : ${floor.name}`} draggable={false} />
               {floor.pois.map((p) => (
                 <button
                   key={p.id}
