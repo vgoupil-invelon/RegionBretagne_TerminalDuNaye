@@ -8,28 +8,84 @@
     {
       "id": "rdc",
       "name": "Rez-de-chaussée",
-      "planImage": "https://placehold.co/800x600?text=Plan+RDC",
+      "planImage": "/src/floors/niveau0.jpg",
       "pois": [
         {
+          "id": "poi-5",
+          "title": "05",
+          "x": 40.7,
+          "y": 13.5,
+          "panoramaUrl": "/src/panoramas/LVL00_CAM05.png"
+        },
+		{
+          "id": "poi-4",
+          "title": "04",
+          "x": 61.3,
+          "y": 13.1,
+          "panoramaUrl": "/src/panoramas/LVL00_CAM04.png"
+        },
+		{
+          "id": "poi-3",
+          "title": "03",
+          "x": 69,
+          "y": 37.5,
+          "panoramaUrl": "/src/panoramas/LVL00_CAM03.png"
+        },
+		{
+          "id": "poi-2",
+          "title": "02",
+          "x": 72,
+          "y": 47.5,
+          "panoramaUrl": "/src/panoramas/LVL00_CAM02.png"
+        },
+		{
           "id": "poi-1",
-          "title": "Accueil principal",
-          "x": 35,
-          "y": 50,
-          "panoramaUrl": "/src/panoramas/sphere.jpg"
+          "title": "01",
+          "x": 72,
+          "y": 58,
+          "panoramaUrl": "/src/panoramas/LVL00_CAM01.png"
         }
       ]
     },
     {
       "id": "etage-1",
       "name": "Étage 1",
-      "planImage": "https://placehold.co/800x600?text=Plan+Etage+1",
+      "planImage": "/src/floors/niveau1.jpg",
       "pois": [
         {
-          "id": "poi-2",
-          "title": "Salle de réunion A",
-          "x": 60,
-          "y": 25,
-          "panoramaUrl": "/src/panoramas/sphere.jpg"
+          "id": "poi-10",
+          "title": "10",
+          "x": 43,
+          "y": 13.4,
+          "panoramaUrl": "/src/panoramas/LVL01_CAM05.png"
+        },
+		{
+          "id": "poi-9",
+          "title": "09",
+          "x": 63.5,
+          "y": 16,
+          "panoramaUrl": "/src/panoramas/LVL01_CAM04.png"
+        },
+		{
+          "id": "poi-8",
+          "title": "08",
+          "x": 72,
+          "y": 42,
+          "panoramaUrl": "/src/panoramas/LVL01_CAM03.png"
+        },
+		{
+          "id": "poi-7",
+          "title": "07",
+          "x": 72,
+          "y": 53.6,
+          "panoramaUrl": "/src/panoramas/LVL01_CAM02.png"
+        },
+		{
+          "id": "poi-6",
+          "title": "06",
+          "x": 74,
+          "y": 68.5,
+          "panoramaUrl": "/src/panoramas/LVL01_CAM01.png"
         }
       ]
     }
