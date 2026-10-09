@@ -2,7 +2,13 @@ import { useEffect, useRef } from 'react'
 import { Viewer } from '@photo-sphere-viewer/core'
 import '@photo-sphere-viewer/core/index.css'
 import { X } from 'lucide-react'
-import sphere from '../panoramas/sphere.jpg'
+
+// Tous les fichiers de src/panoramas sont inclus automatiquement au build
+const panoramas = import.meta.glob('../panoramas/*.{jpg,jpeg,png,webp}', {
+  eager: true,
+  query: '?url',
+  import: 'default',
+}) as Record<string, string>
 
 interface Props {
   title: string
@@ -19,7 +25,7 @@ export default function PanoramaViewer({ title, url, onClose }: Props) {
       if (!container.current) return
       viewer = new Viewer({
         container: container.current,
-        panorama: url === '/src/panoramas/sphere.jpg' ? sphere : url,
+        panorama: panoramas[url.replace(/^\/src\//, '../')] ?? url,
         navbar: ['zoom', 'move', 'fullscreen'],
         defaultZoomLvl: 30,
       })
