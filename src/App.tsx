@@ -71,7 +71,7 @@ export default function App() {
                   aria-label={p.title}
                 >
                   <MapPin size={32} fill="currentColor" />
-                  <span className="tooltip">{p.title}</span>
+                  {p.title?.trim() && <span className="tooltip">{p.title}</span>}
                 </button>
               ))}
             </div>
