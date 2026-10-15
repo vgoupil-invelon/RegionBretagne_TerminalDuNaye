@@ -45,7 +45,7 @@ export default function PanoramaViewer({ title, url, onClose }: Props) {
   return (
     <div className="overlay" role="dialog" aria-modal="true" aria-label={title}>
       <div ref={container} className="viewer" />
-      <div className="viewer-title">{title}</div>
+      {title?.trim() && <div className="viewer-title">{title}</div>}
       <button className="close-btn" onClick={onClose} aria-label="Fermer">
         <X size={24} />
       </button>
