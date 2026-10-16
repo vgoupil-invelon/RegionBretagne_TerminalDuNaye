@@ -24,6 +24,10 @@ button { font: inherit; cursor: pointer; }
 .viewer { width: 100%; height: 100%; }
 .viewer-title { position: absolute; top: 1rem; left: 1rem; z-index: 101; color: #fff; background: rgba(0,0,0,.5); padding: 0.4rem 0.8rem; border-radius: 6px; }
 .close-btn { position: absolute; top: 1rem; right: 1rem; z-index: 101; width: 44px; height: 44px; display: grid; place-items: center; border-radius: 50%; border: 0; background: rgba(0,0,0,.6); color: #fff; }
+.nav-btn { position: absolute; top: 50%; transform: translateY(-50%); z-index: 101; width: 48px; height: 48px; display: grid; place-items: center; border-radius: 50%; border: 0; background: rgba(0,0,0,.6); color: #fff; }
+.nav-btn:hover { background: rgba(0,0,0,.85); }
+.nav-btn.prev { left: 1rem; }
+.nav-btn.next { right: 1rem; }
 .close-btn:hover { background: rgba(0,0,0,.85); }
 @media (max-width: 720px) {
   .menu-btn { display: block; }
