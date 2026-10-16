@@ -21,6 +21,9 @@ export default function App() {
   const [activePoi, setActivePoi] = useState<Poi | null>(null)
   const [sidebarOpen, setSidebarOpen] = useState(false)
   const floor = data.floors.find((f) => f.id === floorId)
+  const activeIndex = floor && activePoi ? floor.pois.findIndex((p) => p.id === activePoi.id) : -1
+  const prevPoi = activeIndex > 0 ? floor!.pois[activeIndex - 1] : null
+  const nextPoi = activeIndex >= 0 && floor && activeIndex < floor.pois.length - 1 ? floor.pois[activeIndex + 1] : null
 
   return (
     <div className="app">
@@ -83,6 +86,8 @@ export default function App() {
           title={activePoi.title}
           url={activePoi.panoramaUrl}
           onClose={() => setActivePoi(null)}
+          onPrev={prevPoi ? () => setActivePoi(prevPoi) : undefined}
+          onNext={nextPoi ? () => setActivePoi(nextPoi) : undefined}
         />
       )}
     </div>
