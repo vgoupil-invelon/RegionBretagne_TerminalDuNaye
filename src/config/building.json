@@ -1,5 +1,5 @@
 {
-  "projectName": "BIENVENUE dans la future gare maritime du Terminal ferry du Naye",
+  "projectName": "Terminal ferry du Naye",
   "partnerLogos": [
     { "name": "Partenaire A", "image": "/src/floors/Région-bretagne-logo.jpg" },
     { "name": "Partenaire B", "image": "/src/floors/port-saint-malo.png" }
@@ -24,7 +24,7 @@
       "pois": [
 	  	{
           "id": "poi-1",
-          "title": "1 - Hall d'accueil 1",
+          "title": "Hall d'accueil 1",
           "number": 1,
           "x": 84,
           "y": 51,
@@ -32,7 +32,7 @@
         },
 		{
           "id": "poi-2",
-          "title": "2 - Hall d'accueil 2",
+          "title": "Hall d'accueil 2",
           "number": 2,
           "x": 85,
           "y": 44,
@@ -40,7 +40,7 @@
         },
 		{
           "id": "poi-3",
-          "title": "3 - Comptoirs compagnies",
+          "title": "Comptoirs compagnies",
           "number": 3,
           "x": 79,
           "y": 35,
@@ -48,7 +48,7 @@
         },
 		{
           "id": "poi-4",
-          "title": "4 - Enregistrement Bagage",
+          "title": "Enregistrement Bagage",
           "number": 4,
           "x": 66,
           "y": 17,
@@ -56,7 +56,7 @@
         },
         {
           "id": "poi-5",
-          "title": "5 - Livraison / récupération des bagages",
+          "title": "Livraison / récupération des bagages",
           "number": 5,
           "x": 31,
           "y": 18,
