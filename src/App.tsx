@@ -1,7 +1,7 @@
 import { useState } from 'react'
-import { Menu, MapPin } from 'lucide-react'
+import { Menu, MapPin, X } from 'lucide-react'
 import building from './config/building.json'
-import type { Building, Poi } from './types'
+import type { AerialPoi, Building, Poi } from './types'
 import PanoramaViewer from './components/PanoramaViewer'
 
 // Tous les fichiers de src/floors sont inclus automatiquement au build
@@ -14,16 +14,41 @@ const floorImages = import.meta.glob('./floors/*.{jpg,jpeg,png,webp,svg}', {
 const resolveFloorImage = (path: string) =>
   floorImages[path.replace(/^\/src\//, './')] ?? path
 
+const photoImages = import.meta.glob('./panoramas/*.{jpg,jpeg,png,webp}', {
+  eager: true,
+  query: '?url',
+  import: 'default',
+}) as Record<string, string>
+
+const resolveImage = (path: string) =>
+  photoImages[path.replace(/^\/src\//, './')] ?? resolveFloorImage(path)
+
 const data = building as Building
 
 export default function App() {
-  const [floorId, setFloorId] = useState(data.floors[0]?.id)
+  const [started, setStarted] = useState(false)
+  const [floorId, setFloorId] = useState<string | undefined>(data.aerialView.id)
+  const [aerialPoi, setAerialPoi] = useState<AerialPoi | null>(null)
   const [activePoi, setActivePoi] = useState<Poi | null>(null)
   const [sidebarOpen, setSidebarOpen] = useState(false)
+  const isAerial = floorId === data.aerialView.id
   const floor = data.floors.find((f) => f.id === floorId)
   const activeIndex = floor && activePoi ? floor.pois.findIndex((p) => p.id === activePoi.id) : -1
   const prevPoi = activeIndex > 0 ? floor!.pois[activeIndex - 1] : null
   const nextPoi = activeIndex >= 0 && floor && activeIndex < floor.pois.length - 1 ? floor.pois[activeIndex + 1] : null
+
+  if (!started) {
+    return (
+      <div className="landing" style={{ backgroundImage: `url(${resolveFloorImage(data.landingImage)})` }}>
+        <div className="landing-content">
+          <h1>{data.projectName}</h1>
+          <button className="start-btn" onClick={() => setStarted(true)}>
+            Commencer la visite
+          </button>
+        </div>
+      </div>
+    )
+  }
 
   return (
     <div className="app">
@@ -46,7 +71,7 @@ export default function App() {
       <div className="body">
         <nav className={`sidebar${sidebarOpen ? ' open' : ''}`} aria-label="Étages">
           <ul>
-            {data.floors.map((f) => (
+            {[data.aerialView, ...data.floors].map((f) => (
               <li key={f.id}>
                 <button
                   className={f.id === floorId ? 'active' : ''}
@@ -62,6 +87,23 @@ export default function App() {
           </ul>
         </nav>
         <main className="plan-area">
+          {isAerial && (
+            <div className="plan">
+              <img src={resolveFloorImage(data.aerialView.image)} alt={data.aerialView.name} draggable={false} />
+              {data.aerialView.pois.map((p) => (
+                <button
+                  key={p.id}
+                  className="poi"
+                  style={{ left: `${p.x}%`, top: `${p.y}%` }}
+                  onClick={() => setAerialPoi(p)}
+                  aria-label={p.title}
+                >
+                  <MapPin size={32} fill="currentColor" />
+                  {p.title?.trim() && <span className="tooltip">{p.title}</span>}
+                </button>
+              ))}
+            </div>
+          )}
           {floor && (
             <div className="plan">
               <img src={resolveFloorImage(floor.planImage)} alt={`Plan : ${floor.name}`} draggable={false} />
@@ -81,6 +123,15 @@ export default function App() {
           )}
         </main>
       </div>
+      {aerialPoi && (
+        <div className="overlay photo-overlay" role="dialog" aria-modal="true" aria-label={aerialPoi.title}>
+          <img src={resolveImage(aerialPoi.image)} alt={aerialPoi.title} />
+          {aerialPoi.title?.trim() && <div className="viewer-title">{aerialPoi.title}</div>}
+          <button className="close-btn" onClick={() => setAerialPoi(null)} aria-label="Fermer">
+            <X size={24} />
+          </button>
+        </div>
+      )}
       {activePoi && (
         <PanoramaViewer
           title={activePoi.title}
