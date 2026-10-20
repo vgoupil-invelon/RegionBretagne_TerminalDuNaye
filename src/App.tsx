@@ -138,6 +138,9 @@ export default function App() {
         <PanoramaViewer
           title={activePoi.title}
           url={activePoi.panoramaUrl}
+          floor={floor}
+          activePoiId={activePoi.id}
+          onSelect={setActivePoi}
           onClose={() => setActivePoi(null)}
           onPrev={prevPoi ? () => setActivePoi(prevPoi) : undefined}
           onNext={nextPoi ? () => setActivePoi(nextPoi) : undefined}

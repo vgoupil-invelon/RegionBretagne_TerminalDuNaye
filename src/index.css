@@ -24,6 +24,12 @@ button { font: inherit; cursor: pointer; }
 .overlay { position: fixed; inset: 0; z-index: 100; background: #000; }
 .viewer { width: 100%; height: 100%; }
 .viewer-title { position: absolute; top: 1rem; left: 1rem; z-index: 101; color: #fff; background: rgba(0,0,0,.5); padding: 0.4rem 0.8rem; border-radius: 6px; }
+.pano-nav { position: absolute; top: 4rem; left: 1rem; z-index: 101; width: 260px; max-width: calc(100vw - 2rem - 60px); color: #fff; background: rgba(0,0,0,.5); border-radius: 6px; overflow: hidden; }
+.pano-nav-toggle { width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; padding: 0.4rem 0.8rem; border: 0; background: transparent; color: inherit; font-weight: 600; }
+.pano-nav ul { list-style: none; margin: 0; padding: 0; max-height: 40vh; overflow-y: auto; }
+.pano-nav li button { width: 100%; text-align: left; padding: 0.4rem 0.8rem; border: 0; background: transparent; color: inherit; }
+.pano-nav li button:hover { background: rgba(255,255,255,.15); }
+.pano-nav li button.active { background: #e63946; font-weight: 600; }
 .close-btn { position: absolute; top: 1rem; right: 1rem; z-index: 101; width: 44px; height: 44px; display: grid; place-items: center; border-radius: 50%; border: 0; background: rgba(0,0,0,.6); color: #fff; }
 .nav-btn { position: absolute; top: 50%; transform: translateY(-50%); z-index: 101; width: 48px; height: 48px; display: grid; place-items: center; border-radius: 50%; border: 0; background: rgba(0,0,0,.6); color: #fff; }
 .nav-btn:hover { background: rgba(0,0,0,.85); }
