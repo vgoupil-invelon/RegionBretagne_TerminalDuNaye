@@ -2,7 +2,7 @@
   "projectName": "BIENVENUE dans la future gare maritime du Terminal ferry du Naye",
   "partnerLogos": [
     { "name": "Partenaire A", "url": "/src/floors/Région-bretagne-logo.jpg" },
-    { "name": "Partenaire B", "url": "/src/floors/Région-bretagne-logo.jpg" }
+    { "name": "Partenaire B", "url": "/src/floors/port-saint-malo.png" }
   ],
   "landingImage": "/src/floors/LVL00.png",
   "aerialView": {
@@ -10,10 +10,10 @@
     "name": "Vue aérienne",
     "image": "/src/floors/vue-aerienne.jpg",
     "pois": [
-      { "id": "aerial-1", "title": "Vue depuis la chaussée Eric Tabarly", "x": 30, "y": 40, "image": "/src/panoramas/eric-tabarly.jpg" },
-      { "id": "aerial-2", "title": "Vue depuis le pont de l’écluse", "x": 65, "y": 55, "image": "/src/panoramas/ecluse.jpg" },
-      { "id": "aerial-3", "title": "Vue du rond point du Naye", "x": 80, "y": 20, "image": "/src/panoramas/rond-point.jpg" },
-      { "id": "aerial-4", "title": "Vue aérienne depuis Intra-Muros", "x": 50, "y": 80, "image": "/src/panoramas/vue-intra-muros.jpg" }
+      { "id": "aerial-1", "title": "Vue depuis la chaussée Eric Tabarly","number": 1, "x": 81, "y": 65, "image": "/src/panoramas/eric-tabarly.jpg" },
+      { "id": "aerial-2", "title": "Vue depuis le pont de l’écluse", "number": 2, "x": 81, "y": 50, "image": "/src/panoramas/ecluse.jpg" },
+      { "id": "aerial-3", "title": "Vue du rond point du Naye", "number": 3, "x": 80, "y": 88, "image": "/src/panoramas/rond-point.jpg" },
+      { "id": "aerial-4", "title": "Vue aérienne depuis Intra-Muros", "number": 4, "x": 62, "y": 40, "image": "/src/panoramas/vue-intra-muros.jpg" }
     ]
   },
   "floors": [
@@ -24,36 +24,40 @@
       "pois": [
 	  	{
           "id": "poi-1",
-          "title": "Hall d'accueil 1",
+          "title": "1 - Hall d'accueil 1",
           "number": 1,
           "x": 84,
-          "y": 50,
+          "y": 51,
           "panoramaUrl": "/src/panoramas/LVL00_CAM01.png"
         },
 		{
           "id": "poi-2",
-          "title": "Hall d'accueil 2",
+          "title": "2 - Hall d'accueil 2",
+          "number": 2,
           "x": 85,
           "y": 44,
           "panoramaUrl": "/src/panoramas/LVL00_CAM02.png"
         },
 		{
           "id": "poi-3",
-          "title": "Comptoirs compagnies",
+          "title": "3 - Comptoirs compagnies",
+          "number": 3,
           "x": 79,
           "y": 35,
           "panoramaUrl": "/src/panoramas/LVL00_CAM03.png"
         },
 		{
           "id": "poi-4",
-          "title": "Enregistrement Bagage",
+          "title": "4 - Enregistrement Bagage",
+          "number": 4,
           "x": 66,
           "y": 17,
           "panoramaUrl": "/src/panoramas/LVL00_CAM04.png"
         },
         {
           "id": "poi-5",
-          "title": "Livraison / récupération des bagages",
+          "title": "5 - Livraison / récupération des bagages",
+          "number": 5,
           "x": 31,
           "y": 18,
           "panoramaUrl": "/src/panoramas/LVL00_CAM05.png"
@@ -68,6 +72,7 @@
 		{
           "id": "poi-6",
           "title": "Zone d'attente assise",
+          "number": 1,
           "x": 86,
           "y": 57,
           "panoramaUrl": "/src/panoramas/LVL01_CAM01.png"
@@ -75,6 +80,7 @@
 		{
           "id": "poi-7",
           "title": "Circulations 1",
+          "number": 2,
           "x": 84,
           "y": 46,
           "panoramaUrl": "/src/panoramas/LVL01_CAM02.png"
@@ -82,6 +88,7 @@
 		{
           "id": "poi-8",
           "title": "Circulations 2",
+          "number": 3,
           "x": 82,
           "y": 38,
           "panoramaUrl": "/src/panoramas/LVL01_CAM03.png"
@@ -89,6 +96,7 @@
 		{
           "id": "poi-9",
           "title": "Espace d'attente avant contrôle",
+          "number": 4,
           "x": 68,
           "y": 18,
           "panoramaUrl": "/src/panoramas/LVL01_CAM04.png"
@@ -96,6 +104,7 @@
         {
           "id": "poi-10",
           "title": "Hall embarquement",
+          "number": 5,
           "x": 35,
           "y": 16,
           "panoramaUrl": "/src/panoramas/LVL01_CAM05.png"
