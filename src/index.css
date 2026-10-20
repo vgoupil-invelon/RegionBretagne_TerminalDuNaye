@@ -11,7 +11,7 @@ button { font: inherit; cursor: pointer; }
 .body { flex: 1; display: flex; min-height: 0; position: relative; }
 .sidebar { width: 220px; display: flex; flex-direction: column; background: #fff; border-right: 1px solid #dde3ea; padding: 1rem; overflow-y: auto; }
 .sidebar ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.5rem; }
-.sidebar::after { content: ''; flex: 0 0 54px; margin: auto -1rem -1rem; background: repeating-linear-gradient(to bottom, #000 0 6px, #fff 6px 12px); }
+.sidebar::after { content: ''; flex: 0 0 108px; margin: auto -1rem -1rem; background: repeating-linear-gradient(to bottom, #000 0 12px, #fff 12px 24px); }
 .sidebar button { width: 100%; text-align: left; padding: 0.7rem 0.9rem; border: 1px solid #dde3ea; border-radius: 8px; background: #f8fafc; }
 .sidebar button.active { background: #000000; color: #fff; border-color: #0b2c4d; }
 .plan-area { flex: 1; display: flex; align-items: center; justify-content: center; padding: 1rem; overflow: auto; }
