@@ -4,6 +4,16 @@
     { "name": "Partenaire A", "url": "https://placehold.co/120x40?text=Logo+A" },
     { "name": "Partenaire B", "url": "https://placehold.co/120x40?text=Logo+B" }
   ],
+  "landingImage": "/src/floors/LVL00.png",
+  "aerialView": {
+    "id": "vue-aerienne",
+    "name": "Vue aérienne",
+    "image": "/src/floors/niveau0.jpg",
+    "pois": [
+      { "id": "aerial-1", "title": "Hall d'accueil", "x": 30, "y": 40, "image": "/src/panoramas/LVL00_CAM01.png" },
+      { "id": "aerial-2", "title": "Zone d'attente", "x": 65, "y": 55, "image": "/src/panoramas/LVL01_CAM01.png" }
+    ]
+  },
   "floors": [
     {
       "id": "rdc",
