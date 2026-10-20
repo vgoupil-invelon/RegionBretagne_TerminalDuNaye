@@ -10,40 +10,40 @@
       "name": "Rez-de-chaussée",
       "planImage": "/src/floors/LVL00.png",
       "pois": [
-        {
-          "id": "poi-5",
-          "title": "",
-          "x": 31,
-          "y": 18,
-          "panoramaUrl": "/src/panoramas/LVL00_CAM05.png"
-        },
-		{
-          "id": "poi-4",
-          "title": "",
-          "x": 66,
-          "y": 17,
-          "panoramaUrl": "/src/panoramas/LVL00_CAM04.png"
-        },
-		{
-          "id": "poi-3",
-          "title": "",
-          "x": 79,
-          "y": 35,
-          "panoramaUrl": "/src/panoramas/LVL00_CAM03.png"
+	  	{
+          "id": "poi-1",
+          "title": "Hall d'accueil 1",
+          "x": 84,
+          "y": 50,
+          "panoramaUrl": "/src/panoramas/LVL00_CAM01.png"
         },
 		{
           "id": "poi-2",
-          "title": "",
+          "title": "Hall d'accueil 2",
           "x": 85,
           "y": 44,
           "panoramaUrl": "/src/panoramas/LVL00_CAM02.png"
         },
 		{
-          "id": "poi-1",
-          "title": "",
-          "x": 84,
-          "y": 50,
-          "panoramaUrl": "/src/panoramas/LVL00_CAM01.png"
+          "id": "poi-3",
+          "title": "Comptoirs compagnies",
+          "x": 79,
+          "y": 35,
+          "panoramaUrl": "/src/panoramas/LVL00_CAM03.png"
+        },
+		{
+          "id": "poi-4",
+          "title": "Enregistrement Bagage",
+          "x": 66,
+          "y": 17,
+          "panoramaUrl": "/src/panoramas/LVL00_CAM04.png"
+        },
+        {
+          "id": "poi-5",
+          "title": "Livraison / récupération des bagages",
+          "x": 31,
+          "y": 18,
+          "panoramaUrl": "/src/panoramas/LVL00_CAM05.png"
         }
       ]
     },
@@ -52,40 +52,40 @@
       "name": "Étage 1",
       "planImage": "/src/floors/LVL01.png",
       "pois": [
-        {
-          "id": "poi-10",
-          "title": "",
-          "x": 35,
-          "y": 16,
-          "panoramaUrl": "/src/panoramas/LVL01_CAM05.png"
-        },
 		{
-          "id": "poi-9",
-          "title": "",
-          "x": 68,
-          "y": 18,
-          "panoramaUrl": "/src/panoramas/LVL01_CAM04.png"
-        },
-		{
-          "id": "poi-8",
-          "title": "",
-          "x": 82,
-          "y": 38,
-          "panoramaUrl": "/src/panoramas/LVL01_CAM03.png"
+          "id": "poi-6",
+          "title": "Zone d'attente assise",
+          "x": 86,
+          "y": 57,
+          "panoramaUrl": "/src/panoramas/LVL01_CAM01.png"
         },
 		{
           "id": "poi-7",
-          "title": "",
+          "title": "Circulations 1",
           "x": 84,
           "y": 46,
           "panoramaUrl": "/src/panoramas/LVL01_CAM02.png"
         },
 		{
-          "id": "poi-6",
-          "title": "",
-          "x": 86,
-          "y": 57,
-          "panoramaUrl": "/src/panoramas/LVL01_CAM01.png"
+          "id": "poi-8",
+          "title": "Circulations 2",
+          "x": 82,
+          "y": 38,
+          "panoramaUrl": "/src/panoramas/LVL01_CAM03.png"
+        },
+		{
+          "id": "poi-9",
+          "title": "Espace d'attente avant contrôle",
+          "x": 68,
+          "y": 18,
+          "panoramaUrl": "/src/panoramas/LVL01_CAM04.png"
+        },
+        {
+          "id": "poi-10",
+          "title": "Hall embarquement",
+          "x": 35,
+          "y": 16,
+          "panoramaUrl": "/src/panoramas/LVL01_CAM05.png"
         }
       ]
     }

@@ -37,11 +37,11 @@ export default function App() {
           <Menu size={22} />
         </button>
         <h1>{data.projectName}</h1>
-        {/* <div className="logos">
+        {<div className="logos">
           {data.partnerLogos.map((l) => (
             <img key={l.name} src={l.url} alt={l.name} />
           ))}
-        </div> */}
+        </div>}
       </header>
       <div className="body">
         <nav className={`sidebar${sidebarOpen ? ' open' : ''}`} aria-label="Étages">
