@@ -1,8 +1,8 @@
 {
   "projectName": "Terminal ferry du Naye",
   "partnerLogos": [
-    { "name": "Partenaire A", "url": "/src/floors/region-bretagne-logo.jpg" },
-    { "name": "Partenaire B", "url": "/src/floors/port-saint-malo.png" }
+    { "name": "Partenaire A", "image": "/src/floors/Région-bretagne-logo.jpg" },
+    { "name": "Partenaire B", "image": "/src/floors/port-saint-malo.png" }
   ],
   "landingImage": "/src/floors/LVL00.png",
   "aerialView": {

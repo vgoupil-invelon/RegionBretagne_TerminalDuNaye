@@ -64,7 +64,7 @@ export default function App() {
         <h1>{data.projectName}</h1>
         {<div className="logos">
           {data.partnerLogos.map((l) => (
-            <img key={l.name} src={l.url} alt={l.name} />
+            <img key={l.name} src={resolveFloorImage(l.image)} alt={l.name} />
           ))}
         </div>}
       </header>

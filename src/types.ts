@@ -16,7 +16,7 @@ export interface Floor {
 
 export interface Building {
   projectName: string
-  partnerLogos: { name: string; url: string }[]
+  partnerLogos: { name: string; image: string }[]
   landingImage: string
   aerialView: AerialView
   floors: Floor[]
