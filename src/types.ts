@@ -1,6 +1,7 @@
 export interface Poi {
   id: string
   title: string
+  number?: number
   x: number
   y: number
   panoramaUrl: string
@@ -24,6 +25,7 @@ export interface Building {
 export interface AerialPoi {
   id: string
   title: string
+  number?: number
   x: number
   y: number
   image: string

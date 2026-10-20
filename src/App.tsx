@@ -99,6 +99,7 @@ export default function App() {
                   aria-label={p.title}
                 >
                   <MapPin size={32} fill="currentColor" />
+                  {p.number !== undefined && <span className="poi-number">{p.number}</span>}
                   {p.title?.trim() && <span className="tooltip">{p.title}</span>}
                 </button>
               ))}
@@ -116,6 +117,7 @@ export default function App() {
                   aria-label={p.title}
                 >
                   <MapPin size={32} fill="currentColor" />
+                  {p.number !== undefined && <span className="poi-number">{p.number}</span>}
                   {p.title?.trim() && <span className="tooltip">{p.title}</span>}
                 </button>
               ))}

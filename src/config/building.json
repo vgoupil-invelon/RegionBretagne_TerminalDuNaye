@@ -25,6 +25,7 @@
 	  	{
           "id": "poi-1",
           "title": "Hall d'accueil 1",
+          "number": 1,
           "x": 84,
           "y": 50,
           "panoramaUrl": "/src/panoramas/LVL00_CAM01.png"

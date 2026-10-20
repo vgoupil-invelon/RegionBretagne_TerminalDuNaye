@@ -16,8 +16,9 @@ button { font: inherit; cursor: pointer; }
 .plan-area { flex: 1; display: flex; align-items: center; justify-content: center; padding: 1rem; overflow: auto; }
 .plan { position: relative; display: inline-block; max-width: 100%; line-height: 0; }
 .plan img { max-width: 100%; max-height: calc(100vh - 7rem); height: auto; border-radius: 8px; box-shadow: 0 4px 16px rgba(0,0,0,.15); user-select: none; }
-.poi { position: absolute; transform: translate(-50%, -100%); background: none; border: 0; padding: 0; color: #ffff00; line-height: 0; }
-.poi:hover, .poi:focus-visible { color: #ebeb00; z-index: 2; }
+.poi { position: absolute; transform: translate(-50%, -100%); background: none; border: 0; padding: 0; color: #e63946; line-height: 0; }
+.poi:hover, .poi:focus-visible { color: #b5121f; z-index: 2; }
+.poi-number { position: absolute; top: 10px; left: 50%; transform: translate(-50%, -50%); color: #fff; font-size: 10px; font-weight: 700; line-height: 1; pointer-events: none; }
 .tooltip { position: absolute; bottom: 100%; left: 50%; transform: translateX(-50%); white-space: nowrap; background: #1b2733; color: #fff; padding: 0.3rem 0.6rem; border-radius: 6px; font-size: 0.85rem; line-height: 1.2; opacity: 0; pointer-events: none; transition: opacity .15s; }
 .poi:hover .tooltip, .poi:focus-visible .tooltip { opacity: 1; }
 .overlay { position: fixed; inset: 0; z-index: 100; background: #000; }
