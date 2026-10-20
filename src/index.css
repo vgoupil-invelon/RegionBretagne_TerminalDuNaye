@@ -3,21 +3,21 @@ html, body, #root { height: 100%; margin: 0; }
 body { font-family: system-ui, -apple-system, 'Segoe UI', sans-serif; background: #f3f5f8; color: #1b2733; }
 button { font: inherit; cursor: pointer; }
 .app { display: flex; flex-direction: column; height: 100%; }
-.header { display: flex; align-items: center; gap: 1rem; padding: 0.75rem 1.5rem; background: #0b2c4d; color: #fff; }
+.header { display: flex; align-items: center; gap: 1rem; padding: 0.75rem 1.5rem; background: #ffffff; color: #000000; }
 .header h1 { margin: 0; font-size: 1.5rem; letter-spacing: 0.04em; font-weight: 600; flex: 1; }
 .logos { display: flex; gap: 0.75rem; align-items: center; }
-.logos img { height: 32px; border-radius: 4px; background: #fff; }
+.logos img { height: 40px; border-radius: 4px; background: #fff; }
 .menu-btn { display: none; background: none; border: 0; color: #fff; padding: 0.25rem; }
 .body { flex: 1; display: flex; min-height: 0; position: relative; }
 .sidebar { width: 220px; background: #fff; border-right: 1px solid #dde3ea; padding: 1rem; overflow-y: auto; }
 .sidebar ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.5rem; }
 .sidebar button { width: 100%; text-align: left; padding: 0.7rem 0.9rem; border: 1px solid #dde3ea; border-radius: 8px; background: #f8fafc; }
-.sidebar button.active { background: #0b2c4d; color: #fff; border-color: #0b2c4d; }
+.sidebar button.active { background: #000000; color: #fff; border-color: #0b2c4d; }
 .plan-area { flex: 1; display: flex; align-items: center; justify-content: center; padding: 1rem; overflow: auto; }
 .plan { position: relative; display: inline-block; max-width: 100%; line-height: 0; }
 .plan img { max-width: 100%; max-height: calc(100vh - 7rem); height: auto; border-radius: 8px; box-shadow: 0 4px 16px rgba(0,0,0,.15); user-select: none; }
-.poi { position: absolute; transform: translate(-50%, -100%); background: none; border: 0; padding: 0; color: #e63946; line-height: 0; }
-.poi:hover, .poi:focus-visible { color: #b5121f; z-index: 2; }
+.poi { position: absolute; transform: translate(-50%, -100%); background: none; border: 0; padding: 0; color: #ffff00; line-height: 0; }
+.poi:hover, .poi:focus-visible { color: #ebeb00; z-index: 2; }
 .tooltip { position: absolute; bottom: 100%; left: 50%; transform: translateX(-50%); white-space: nowrap; background: #1b2733; color: #fff; padding: 0.3rem 0.6rem; border-radius: 6px; font-size: 0.85rem; line-height: 1.2; opacity: 0; pointer-events: none; transition: opacity .15s; }
 .poi:hover .tooltip, .poi:focus-visible .tooltip { opacity: 1; }
 .overlay { position: fixed; inset: 0; z-index: 100; background: #000; }
