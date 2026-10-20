@@ -1,17 +1,19 @@
 {
-  "projectName": "Terminal du Naye",
+  "projectName": "BIENVENUE dans la future gare maritime du Terminal ferry du Naye",
   "partnerLogos": [
-    { "name": "Partenaire A", "url": "https://placehold.co/120x40?text=Logo+A" },
-    { "name": "Partenaire B", "url": "https://placehold.co/120x40?text=Logo+B" }
+    { "name": "Partenaire A", "url": "/src/floors/Région-bretagne-logo.jpg" },
+    { "name": "Partenaire B", "url": "/src/floors/Région-bretagne-logo.jpg" }
   ],
   "landingImage": "/src/floors/LVL00.png",
   "aerialView": {
     "id": "vue-aerienne",
     "name": "Vue aérienne",
-    "image": "/src/floors/niveau0.jpg",
+    "image": "/src/floors/vue-aerienne.jpg",
     "pois": [
-      { "id": "aerial-1", "title": "Hall d'accueil", "number": 1, "x": 30, "y": 40, "image": "/src/panoramas/LVL00_CAM01.png" },
-      { "id": "aerial-2", "title": "Zone d'attente", "x": 65, "y": 55, "image": "/src/panoramas/LVL01_CAM01.png" }
+      { "id": "aerial-1", "title": "Vue depuis la chaussée Eric Tabarly", "x": 30, "y": 40, "image": "/src/panoramas/eric-tabarly.jpg" },
+      { "id": "aerial-2", "title": "Vue depuis le pont de l’écluse", "x": 65, "y": 55, "image": "/src/panoramas/ecluse.jpg" },
+      { "id": "aerial-3", "title": "Vue du rond point du Naye", "x": 80, "y": 20, "image": "/src/panoramas/rond-point.jpg" },
+      { "id": "aerial-4", "title": "Vue aérienne depuis Intra-Muros", "x": 50, "y": 80, "image": "/src/panoramas/vue-intra-muros.jpg" }
     ]
   },
   "floors": [
