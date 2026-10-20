@@ -2,6 +2,8 @@ import { useEffect, useRef } from 'react'
 import { Viewer } from '@photo-sphere-viewer/core'
 import '@photo-sphere-viewer/core/index.css'
 import { X, ChevronLeft, ChevronRight } from 'lucide-react'
+import type { Floor, Poi } from '../types'
+import PanoramaNavigationOverlay from './PanoramaNavigationOverlay'
 
 // Tous les fichiers de src/panoramas sont inclus automatiquement au build
 const panoramas = import.meta.glob('../panoramas/*.{jpg,jpeg,png,webp}', {
@@ -16,9 +18,12 @@ interface Props {
   onClose: () => void
   onPrev?: () => void
   onNext?: () => void
+  floor?: Floor
+  activePoiId?: string
+  onSelect?: (poi: Poi) => void
 }
 
-export default function PanoramaViewer({ title, url, onClose, onPrev, onNext }: Props) {
+export default function PanoramaViewer({ title, url, onClose, onPrev, onNext, floor, activePoiId, onSelect }: Props) {
   const container = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
@@ -48,6 +53,9 @@ export default function PanoramaViewer({ title, url, onClose, onPrev, onNext }: 
     <div className="overlay" role="dialog" aria-modal="true" aria-label={title}>
       <div ref={container} className="viewer" />
       {title?.trim() && <div className="viewer-title">{title}</div>}
+      {floor && activePoiId && onSelect && (
+        <PanoramaNavigationOverlay floor={floor} activePoiId={activePoiId} onSelect={onSelect} />
+      )}
       <button className="close-btn" onClick={onClose} aria-label="Fermer">
         <X size={24} />
       </button>
