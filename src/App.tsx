@@ -54,6 +54,12 @@ export default function App() {
   return (
     <div className="app">
       <header className="header">
+        <div className="logos">
+          {data.partnerLogos.map((l) => (
+            <img key={l.name} src={resolveFloorImage(l.image)} alt={l.name} />
+          ))}
+        </div>
+        <h1>{data.projectName}</h1>
         <button
           className="menu-btn"
           onClick={() => setSidebarOpen((o) => !o)}
@@ -62,12 +68,6 @@ export default function App() {
         >
           <Menu size={22} />
         </button>
-        <h1>{data.projectName}</h1>
-        {<div className="logos">
-          {data.partnerLogos.map((l) => (
-            <img key={l.name} src={resolveFloorImage(l.image)} alt={l.name} />
-          ))}
-        </div>}
       </header>
       <div className="body">
         <nav className={`sidebar${sidebarOpen ? ' open' : ''}`} aria-label="Étages">
