@@ -22,6 +22,7 @@ button { font: inherit; cursor: pointer; }
 .poi-number { position: absolute; top: 10px; left: 50%; transform: translate(-50%, -50%); color: #000000; font-size: 10px; font-weight: 700; line-height: 1; pointer-events: none; }
 .tooltip { position: absolute; bottom: 100%; left: 50%; transform: translateX(-50%); white-space: nowrap; background: #000000; color: #fff; font-weight: bold; padding: 0.3rem 0.6rem; border-radius: 6px; font-size: 0.85rem; line-height: 1.2; opacity: 0; pointer-events: none; transition: opacity .15s; }
 .poi:hover .tooltip, .poi:focus-visible .tooltip { opacity: 1; }
+.tooltip.always-visible { opacity: 1; }
 .overlay { position: fixed; inset: 0; z-index: 100; background: #000; }
 .viewer { width: 100%; height: 100%; }
 .viewer-title { position: absolute; top: 1rem; left: 1rem; z-index: 101; color: #fff; background: rgba(0,0,0,.5); padding: 0.4rem 0.8rem; border-radius: 6px; }

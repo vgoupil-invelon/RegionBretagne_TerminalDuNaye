@@ -23,7 +23,7 @@ export default function PanoramaNavigationOverlay({ floor, activePoiId, onSelect
       </button>
       {!isCollapsed && (
         <ul>
-          {floor.pois.map((p, i) => (
+          {floor.pois.filter((p) => p.panoramaUrl).map((p, i) => (
             <li key={p.id}>
               <button
                 className={p.id === activePoiId ? 'active' : ''}
