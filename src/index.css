@@ -52,3 +52,11 @@ button { font: inherit; cursor: pointer; }
 .start-btn:hover { background: #ecec00; }
 .photo-overlay { display: flex; align-items: center; justify-content: center; }
 .photo-overlay img { max-width: 100%; max-height: 100%; object-fit: contain; }
+.poi-legend { list-style: none; margin: 0; padding: 0; display: none; }
+.poi-legend button { display: flex; align-items: center; gap: 0.5rem; width: 100%; text-align: left; padding: 0.4rem 0.6rem; border: 0; border-radius: 6px; background: transparent; color: inherit; }
+.poi-legend button:hover, .poi-legend button.hovered { background: #fff7a8; }
+.poi-legend-badge { flex: 0 0 auto; min-width: 1.6rem; height: 1.6rem; display: grid; place-items: center; border-radius: 50%; background: #ffff00; color: #000; font-size: 0.85rem; }
+@media (orientation: portrait) {
+  .plan-area { flex-direction: column; justify-content: flex-start; gap: 1rem; }
+  .poi-legend { display: grid; gap: 0.25rem; width: 100%; }
+}
