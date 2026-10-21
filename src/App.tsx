@@ -33,9 +33,10 @@ export default function App() {
   const [sidebarOpen, setSidebarOpen] = useState(false)
   const isAerial = floorId === data.aerialView.id
   const floor = data.floors.find((f) => f.id === floorId)
-  const activeIndex = floor && activePoi ? floor.pois.findIndex((p) => p.id === activePoi.id) : -1
-  const prevPoi = activeIndex > 0 ? floor!.pois[activeIndex - 1] : null
-  const nextPoi = activeIndex >= 0 && floor && activeIndex < floor.pois.length - 1 ? floor.pois[activeIndex + 1] : null
+  const panoramaPois = floor?.pois.filter((p) => p.panoramaUrl) ?? []
+  const activeIndex = activePoi ? panoramaPois.findIndex((p) => p.id === activePoi.id) : -1
+  const prevPoi = activeIndex > 0 ? panoramaPois[activeIndex - 1] : null
+  const nextPoi = activeIndex >= 0 && activeIndex < panoramaPois.length - 1 ? panoramaPois[activeIndex + 1] : null
 
   if (!started) {
     return (
@@ -95,12 +96,12 @@ export default function App() {
                   key={p.id}
                   className="poi"
                   style={{ left: `${p.x}%`, top: `${p.y}%` }}
-                  onClick={() => setAerialPoi(p)}
+                  onClick={() => p.image && setAerialPoi(p)}
                   aria-label={p.title}
                 >
                   <MapPin size={32} fill="currentColor" />
                   {p.number !== undefined && <span className="poi-number">{p.number}</span>}
-                  {p.title?.trim() && <span className="tooltip">{p.title}</span>}
+                  {p.title?.trim() && <span className={`tooltip${p.showTitle ? ' always-visible' : ''}`}>{p.title}</span>}
                 </button>
               ))}
             </div>
@@ -113,19 +114,19 @@ export default function App() {
                   key={p.id}
                   className="poi"
                   style={{ left: `${p.x}%`, top: `${p.y}%` }}
-                  onClick={() => setActivePoi(p)}
+                  onClick={() => p.panoramaUrl && setActivePoi(p)}
                   aria-label={p.title}
                 >
                   <MapPin size={32} fill="currentColor" />
                   {p.number !== undefined && <span className="poi-number">{p.number}</span>}
-                  {p.title?.trim() && <span className="tooltip">{p.title}</span>}
+                  {p.title?.trim() && <span className={`tooltip${p.showTitle ? ' always-visible' : ''}`}>{p.title}</span>}
                 </button>
               ))}
             </div>
           )}
         </main>
       </div>
-      {aerialPoi && (
+      {aerialPoi?.image && (
         <div className="overlay photo-overlay" role="dialog" aria-modal="true" aria-label={aerialPoi.title}>
           <img src={resolveImage(aerialPoi.image)} alt={aerialPoi.title} />
           {aerialPoi.title?.trim() && <div className="viewer-title">{aerialPoi.title}</div>}
@@ -134,13 +135,13 @@ export default function App() {
           </button>
         </div>
       )}
-      {activePoi && (
+      {activePoi?.panoramaUrl && (
         <PanoramaViewer
           title={activePoi.title}
           url={activePoi.panoramaUrl}
           floor={floor}
           activePoiId={activePoi.id}
-          onSelect={setActivePoi}
+          onSelect={(poi) => poi.panoramaUrl && setActivePoi(poi)}
           onClose={() => setActivePoi(null)}
           onPrev={prevPoi ? () => setActivePoi(prevPoi) : undefined}
           onNext={nextPoi ? () => setActivePoi(nextPoi) : undefined}

@@ -4,7 +4,8 @@ export interface Poi {
   number?: number
   x: number
   y: number
-  panoramaUrl: string
+  panoramaUrl?: string
+  showTitle?: boolean
 }
 
 export interface Floor {
@@ -28,7 +29,8 @@ export interface AerialPoi {
   number?: number
   x: number
   y: number
-  image: string
+  image?: string
+  showTitle?: boolean
 }
 
 export interface AerialView {
