@@ -1,8 +1,10 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Menu, MapPin, X } from 'lucide-react'
 import building from './config/building.json'
 import type { AerialPoi, Building, Poi } from './types'
 import PanoramaViewer from './components/PanoramaViewer'
+import POILegend from './components/POILegend'
+import { getLegendItems, type LegendPoi } from './components/legend'
 
 // Tous les fichiers de src/floors sont inclus automatiquement au build
 const floorImages = import.meta.glob('./floors/*.{jpg,jpeg,png,webp,svg}', {
@@ -25,18 +27,38 @@ const resolveImage = (path: string) =>
 
 const data = building as Building
 
+function useIsPortrait() {
+  const query = '(orientation: portrait)'
+  const [portrait, setPortrait] = useState(() => window.matchMedia(query).matches)
+  useEffect(() => {
+    const mq = window.matchMedia(query)
+    const onChange = () => setPortrait(mq.matches)
+    onChange()
+    mq.addEventListener('change', onChange)
+    return () => mq.removeEventListener('change', onChange)
+  }, [])
+  return portrait
+}
+
 export default function App() {
   const [started, setStarted] = useState(false)
   const [floorId, setFloorId] = useState<string | undefined>(data.aerialView.id)
   const [aerialPoi, setAerialPoi] = useState<AerialPoi | null>(null)
   const [activePoi, setActivePoi] = useState<Poi | null>(null)
   const [sidebarOpen, setSidebarOpen] = useState(false)
+  const [hoveredId, setHoveredId] = useState<string | null>(null)
+  const isPortrait = useIsPortrait()
   const isAerial = floorId === data.aerialView.id
   const floor = data.floors.find((f) => f.id === floorId)
   const panoramaPois = floor?.pois.filter((p) => p.panoramaUrl) ?? []
   const activeIndex = activePoi ? panoramaPois.findIndex((p) => p.id === activePoi.id) : -1
   const prevPoi = activeIndex > 0 ? panoramaPois[activeIndex - 1] : null
   const nextPoi = activeIndex >= 0 && activeIndex < panoramaPois.length - 1 ? panoramaPois[activeIndex + 1] : null
+
+  const aerialLegend = getLegendItems(data.aerialView.pois)
+  const floorLegend = floor ? getLegendItems(floor.pois) : []
+  const legendLabel = (items: LegendPoi[], id: string, hideTitles = isPortrait) =>
+    hideTitles ? items.find((i) => i.id === id)?.label : undefined
 
   if (!started) {
     return (
@@ -94,17 +116,36 @@ export default function App() {
               {data.aerialView.pois.map((p) => (
                 <button
                   key={p.id}
-                  className="poi"
+                  className={`poi${p.image ? '' : ' static'}`}
                   style={{ left: `${p.x}%`, top: `${p.y}%` }}
                   onClick={() => p.image && setAerialPoi(p)}
+                  onMouseEnter={() => setHoveredId(p.id)}
+                  onMouseLeave={() => setHoveredId(null)}
+                  disabled={!p.image}
                   aria-label={p.title}
                 >
-                  <MapPin size={32} fill="currentColor" />
+                  {p.image ? <MapPin size={32} fill="currentColor" /> : <span className="poi-dot" />}
                   {p.number !== undefined && <span className="poi-number">{p.number}</span>}
-                  {p.title?.trim() && <span className={`tooltip${p.showTitle ? ' always-visible' : ''}`}>{p.title}</span>}
+                  {legendLabel(aerialLegend, p.id, true) !== undefined && p.number === undefined && (
+                    <span className="poi-number">{legendLabel(aerialLegend, p.id, true)}</span>
+                  )}
+                  {p.title?.trim() && legendLabel(aerialLegend, p.id, true) === undefined && (
+                    <span className={`tooltip${p.showTitle ? ' always-visible' : ''}`}>{p.title}</span>
+                  )}
                 </button>
               ))}
             </div>
+          )}
+          {isAerial && (
+            <POILegend
+              items={aerialLegend}
+              hoveredId={hoveredId}
+              onHover={setHoveredId}
+              onSelect={(id) => {
+                const p = data.aerialView.pois.find((x) => x.id === id)
+                if (p?.image) setAerialPoi(p)
+              }}
+            />
           )}
           {floor && (
             <div className="plan">
@@ -112,17 +153,36 @@ export default function App() {
               {floor.pois.map((p) => (
                 <button
                   key={p.id}
-                  className="poi"
+                  className={`poi${p.panoramaUrl ? '' : ' static'}`}
                   style={{ left: `${p.x}%`, top: `${p.y}%` }}
                   onClick={() => p.panoramaUrl && setActivePoi(p)}
+                  onMouseEnter={() => setHoveredId(p.id)}
+                  onMouseLeave={() => setHoveredId(null)}
+                  disabled={!p.panoramaUrl}
                   aria-label={p.title}
                 >
-                  <MapPin size={32} fill="currentColor" />
+                  {p.panoramaUrl ? <MapPin size={32} fill="currentColor" /> : <span className="poi-dot" />}
                   {p.number !== undefined && <span className="poi-number">{p.number}</span>}
-                  {p.title?.trim() && <span className={`tooltip${p.showTitle ? ' always-visible' : ''}`}>{p.title}</span>}
+                  {legendLabel(floorLegend, p.id) !== undefined && p.number === undefined && (
+                    <span className="poi-number">{legendLabel(floorLegend, p.id)}</span>
+                  )}
+                  {p.title?.trim() && legendLabel(floorLegend, p.id) === undefined && (
+                    <span className={`tooltip${p.showTitle ? ' always-visible' : ''}`}>{p.title}</span>
+                  )}
                 </button>
               ))}
             </div>
+          )}
+          {floor && (
+            <POILegend
+              items={floorLegend}
+              hoveredId={hoveredId}
+              onHover={setHoveredId}
+              onSelect={(id) => {
+                const p = floor.pois.find((x) => x.id === id)
+                if (p?.panoramaUrl) setActivePoi(p)
+              }}
+            />
           )}
         </main>
       </div>
