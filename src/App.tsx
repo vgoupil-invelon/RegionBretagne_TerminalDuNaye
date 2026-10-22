@@ -55,9 +55,9 @@ export default function App() {
   const prevPoi = activeIndex > 0 ? panoramaPois[activeIndex - 1] : null
   const nextPoi = activeIndex >= 0 && activeIndex < panoramaPois.length - 1 ? panoramaPois[activeIndex + 1] : null
 
-  const aerialLegend = isPortrait ? getLegendItems(data.aerialView.pois) : []
-  const floorLegend = isPortrait && floor ? getLegendItems(floor.pois) : []
-  const legendLabel = (items: LegendPoi[], id: string) => items.find((i) => i.id === id)?.label
+  const aerialLegend = getLegendItems(data.aerialView.pois)
+  const floorLegend = floor ? getLegendItems(floor.pois) : []
+  const legendLabel = (items: LegendPoi[], id: string) => (isPortrait ? items.find((i) => i.id === id)?.label : undefined)
 
   if (!started) {
     return (
@@ -115,14 +115,15 @@ export default function App() {
               {data.aerialView.pois.map((p) => (
                 <button
                   key={p.id}
-                  className="poi"
+                  className={`poi${p.image ? '' : ' static'}`}
                   style={{ left: `${p.x}%`, top: `${p.y}%` }}
                   onClick={() => p.image && setAerialPoi(p)}
                   onMouseEnter={() => setHoveredId(p.id)}
                   onMouseLeave={() => setHoveredId(null)}
+                  disabled={!p.image}
                   aria-label={p.title}
                 >
-                  <MapPin size={32} fill="currentColor" />
+                  {p.image ? <MapPin size={32} fill="currentColor" /> : <span className="poi-dot" />}
                   {p.number !== undefined && <span className="poi-number">{p.number}</span>}
                   {legendLabel(aerialLegend, p.id) !== undefined && p.number === undefined && (
                     <span className="poi-number">{legendLabel(aerialLegend, p.id)}</span>
@@ -151,14 +152,15 @@ export default function App() {
               {floor.pois.map((p) => (
                 <button
                   key={p.id}
-                  className="poi"
+                  className={`poi${p.panoramaUrl ? '' : ' static'}`}
                   style={{ left: `${p.x}%`, top: `${p.y}%` }}
                   onClick={() => p.panoramaUrl && setActivePoi(p)}
                   onMouseEnter={() => setHoveredId(p.id)}
                   onMouseLeave={() => setHoveredId(null)}
+                  disabled={!p.panoramaUrl}
                   aria-label={p.title}
                 >
-                  <MapPin size={32} fill="currentColor" />
+                  {p.panoramaUrl ? <MapPin size={32} fill="currentColor" /> : <span className="poi-dot" />}
                   {p.number !== undefined && <span className="poi-number">{p.number}</span>}
                   {legendLabel(floorLegend, p.id) !== undefined && p.number === undefined && (
                     <span className="poi-number">{legendLabel(floorLegend, p.id)}</span>

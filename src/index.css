@@ -18,7 +18,7 @@ button { font: inherit; cursor: pointer; }
 .plan { position: relative; display: inline-block; max-width: 100%; line-height: 0; }
 .plan img { max-width: 100%; max-height: calc(100vh - 7rem); height: auto; border-radius: 8px; box-shadow: 0 4px 16px rgba(0,0,0,.15); user-select: none; }
 .poi { position: absolute; transform: translate(-50%, -100%); background: none; border: 0; padding: 0; color: #ffff00; line-height: 0; }
-.poi:hover, .poi:focus-visible { color: #ecec00; z-index: 2; }
+.poi:not(.static):hover, .poi:focus-visible { color: #ecec00; z-index: 2; }
 .poi-number { position: absolute; top: 10px; left: 50%; transform: translate(-50%, -30%); color: #000000; font-size: 15px; font-weight: 700; line-height: 1; pointer-events: none; }
 .tooltip { position: absolute; bottom: 100%; left: 50%; transform: translateX(-50%); white-space: nowrap; background: #000000; color: #fff; font-weight: bold; padding: 0.3rem 0.6rem; border-radius: 6px; font-size: 0.85rem; line-height: 1.2; opacity: 0; pointer-events: none; transition: opacity .15s; }
 .poi:hover .tooltip, .poi:focus-visible .tooltip { opacity: 1; }
@@ -52,11 +52,18 @@ button { font: inherit; cursor: pointer; }
 .start-btn:hover { background: #ecec00; }
 .photo-overlay { display: flex; align-items: center; justify-content: center; }
 .photo-overlay img { max-width: 100%; max-height: 100%; object-fit: contain; }
-.poi-legend { list-style: none; margin: 0; padding: 0; display: none; }
+.poi-legend { list-style: none; margin: 0 0 0 1rem; padding: 0.5rem; display: grid; gap: 0.25rem; flex: 0 0 240px; max-width: 30%; align-self: flex-start; background: #fff; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,.12); }
 .poi-legend button { display: flex; align-items: center; gap: 0.5rem; width: 100%; text-align: left; padding: 0.4rem 0.6rem; border: 0; border-radius: 6px; background: transparent; color: inherit; }
-.poi-legend button:hover, .poi-legend button.hovered { background: #fff7a8; }
+.poi-legend button:not(:disabled):hover, .poi-legend button.hovered { background: #fff7a8; }
+.poi-legend button:disabled { cursor: default; }
 .poi-legend-badge { flex: 0 0 auto; min-width: 1.6rem; height: 1.6rem; display: grid; place-items: center; border-radius: 50%; background: #ffff00; color: #000; font-size: 0.85rem; }
+.poi.static { transform: translate(-50%, -50%); color: #1e90ff; cursor: default; }
+.poi.static:hover { color: #1e90ff; z-index: auto; }
+.poi.static:hover .tooltip { opacity: 0; }
+.poi.static:hover .tooltip.always-visible { opacity: 1; }
+.poi-dot { display: block; width: 18px; height: 18px; border-radius: 50%; background: #1e90ff; border: 2px solid #fff; box-shadow: 0 1px 4px rgba(0,0,0,.4); }
+.poi.static .tooltip { bottom: calc(100% + 4px); }
 @media (orientation: portrait) {
   .plan-area { flex-direction: column; justify-content: flex-start; gap: 1rem; }
-  .poi-legend { display: grid; gap: 0.25rem; width: 100%; }
+  .poi-legend { margin: 0; width: 100%; max-width: none; flex: 0 0 auto; align-self: stretch; }
 }

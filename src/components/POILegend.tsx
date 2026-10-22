@@ -14,8 +14,9 @@ export default function POILegend({ items, hoveredId, onHover, onSelect }: Props
       {items.map((i) => (
         <li key={i.id}>
           <button
-            className={hoveredId === i.id ? 'hovered' : ''}
-            onClick={() => onSelect(i.id)}
+            className={hoveredId === i.id && i.interactive ? 'hovered' : ''}
+            disabled={!i.interactive}
+            onClick={() => i.interactive && onSelect(i.id)}
             onMouseEnter={() => onHover(i.id)}
             onMouseLeave={() => onHover(null)}
             onFocus={() => onHover(i.id)}
