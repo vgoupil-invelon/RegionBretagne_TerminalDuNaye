@@ -62,7 +62,7 @@ button { font: inherit; cursor: pointer; }
 .poi.static:hover { color: #000; z-index: auto; }
 .poi.static:hover .tooltip { opacity: 0; }
 .poi.static:hover .tooltip.always-visible { opacity: 1; }
-.poi-dot { display: block; width: 26px; height: 26px; border-radius: 50%; background: #000; border: 2px solid #fff; box-shadow: 0 1px 4px rgba(0,0,0,.4); }
+.poi-dot { display: block; width: 26px; height: 26px; border-radius: 50%; background: #000; border: 2px solid #000000; box-shadow: 0 1px 4px rgba(0,0,0,.4); }
 .poi.static .poi-number { top: 50%; transform: translate(-50%, -50%); color: #fff; }
 .poi.static .tooltip { bottom: calc(100% + 4px); }
 @media (orientation: portrait) {

@@ -1,5 +1,5 @@
 {
-  "projectName": "BIENVENUE dans la future gare maritime du Terminal Ferry du Naye",
+  "projectName": "Bienvenue dans la future gare maritime du Terminal Ferry du Naye",
   "partnerLogos": [
     { "name": "Partenaire A", "image": "/src/floors/region-bretagne-logo.jpg" },
     { "name": "Partenaire B", "image": "/src/floors/port-saint-malo.png" }
@@ -8,16 +8,16 @@
   "aerialView": {
     "id": "vue-aerienne",
     "name": "Vue aérienne",
-    "image": "/src/floors/vue-aerienne.jpg",
+    "image": "/src/floors/vue-aerienne.png",
     "pois": [
-      { "id": "aerial-1", "title": "Vue depuis la chaussée Eric Tabarly","number": 1, "x": 81, "y": 65, "image": "/src/panoramas/eric-tabarly.jpg" },
-      { "id": "aerial-2", "title": "Vue depuis le pont de l’écluse", "number": 2, "x": 81, "y": 50, "image": "/src/panoramas/ecluse.jpg" },
-      { "id": "aerial-3", "title": "Vue du rond point du Naye", "number": 3, "x": 80, "y": 88, "image": "/src/panoramas/rond-point.jpg" },
-      { "id": "aerial-4", "title": "Vue aérienne depuis Intra-Muros", "number": 4, "x": 62, "y": 40, "image": "/src/panoramas/vue-intra-muros.jpg" },
-      { "id": "aerial-5", "title": "Terre-plein hors ZAR", "number": "A", "showTitle": false, "x": 30, "y": 65 },
-      { "id": "aerial-6", "title": "Terre-plein ZAR", "showTitle": false, "x": 20, "y": 55 },
-      { "id": "aerial-7", "title": "Parking visiteurs", "showTitle": false, "x": 55, "y": 53 },
-      { "id": "aerial-8", "title": "Entrée piéton - Accueil Gare Maritime", "showTitle": false, "x": 66, "y": 62 }
+      { "id": "aerial-1", "title": "Vue depuis la chaussée Eric Tabarly","number": 1,"showTitle": true, "x": 81, "y": 65, "image": "/src/panoramas/eric-tabarly.jpg" },
+      { "id": "aerial-2", "title": "Vue depuis le pont de l’écluse", "number": 2,"showTitle": true, "x": 81, "y": 50, "image": "/src/panoramas/ecluse.jpg" },
+      { "id": "aerial-3", "title": "Vue du rond point du Naye", "number": 3,"showTitle": true, "x": 80, "y": 88, "image": "/src/panoramas/rond-point.jpg" },
+      { "id": "aerial-4", "title": "Vue aérienne depuis Intra-Muros", "number": 4, "showTitle": true, "x": 62, "y": 40, "image": "/src/panoramas/vue-intra-muros.png" },
+      { "id": "aerial-8", "title": "Accueil Gare Maritime - Entrée piétons", "number": "A", "showTitle": true, "x": 66, "y": 61 },
+      { "id": "aerial-7", "title": "Parking visiteurs","number": "B", "showTitle": true, "x": 55, "y": 54 },
+      { "id": "aerial-5", "title": "Terre-plein hors ZAR (Zone d'Accès Restreint)", "number": "C", "showTitle": true, "x": 32, "y": 65 },
+      { "id": "aerial-6", "title": "Terre-plein ZAR (Zone d'Accès Restreint)","number": "D", "showTitle": true, "x": 20, "y": 55 }
     ]
   },
   "floors": [
