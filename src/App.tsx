@@ -57,7 +57,8 @@ export default function App() {
 
   const aerialLegend = getLegendItems(data.aerialView.pois)
   const floorLegend = floor ? getLegendItems(floor.pois) : []
-  const legendLabel = (items: LegendPoi[], id: string) => (isPortrait ? items.find((i) => i.id === id)?.label : undefined)
+  const legendLabel = (items: LegendPoi[], id: string, hideTitles = isPortrait) =>
+    hideTitles ? items.find((i) => i.id === id)?.label : undefined
 
   if (!started) {
     return (
@@ -125,10 +126,10 @@ export default function App() {
                 >
                   {p.image ? <MapPin size={32} fill="currentColor" /> : <span className="poi-dot" />}
                   {p.number !== undefined && <span className="poi-number">{p.number}</span>}
-                  {legendLabel(aerialLegend, p.id) !== undefined && p.number === undefined && (
-                    <span className="poi-number">{legendLabel(aerialLegend, p.id)}</span>
+                  {legendLabel(aerialLegend, p.id, true) !== undefined && p.number === undefined && (
+                    <span className="poi-number">{legendLabel(aerialLegend, p.id, true)}</span>
                   )}
-                  {p.title?.trim() && legendLabel(aerialLegend, p.id) === undefined && (
+                  {p.title?.trim() && legendLabel(aerialLegend, p.id, true) === undefined && (
                     <span className={`tooltip${p.showTitle ? ' always-visible' : ''}`}>{p.title}</span>
                   )}
                 </button>
