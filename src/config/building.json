@@ -1,10 +1,10 @@
 {
   "projectName": "Bienvenue dans la future gare maritime du Terminal Ferry du Naye",
   "partnerLogos": [
-    { "name": "Partenaire A", "image": "/src/floors/region-bretagne-logo.jpg" },
-    { "name": "Partenaire B", "image": "/src/floors/port-saint-malo.png" }
+    { "name": "Partenaire A", "image": "/src/floors/Logos-region_saint-malo.png" }
   ],
-  "landingImage": "/src/floors/landing.jpg",
+  "landingImage": "/src/floors/landing.png",
+  "landingImagePortrait": "/src/floors/landing-portrait.png",
   "aerialView": {
     "id": "vue-aerienne",
     "name": "Vue aérienne",

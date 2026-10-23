@@ -9,7 +9,7 @@ button { font: inherit; cursor: pointer; }
 .header { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 1rem; padding: 0.75rem 1.5rem; background: #000000;border-bottom: 1px solid #dde3ea; color: #ffffff; }
 .header h1 { grid-column: 2; grid-row: 1; margin: 0; font-size: 1.5rem; letter-spacing: 0.04em; font-weight: bold; text-align: center; }
 .logos { grid-column: 1; grid-row: 1; display: flex; gap: 0.75rem; align-items: center; }
-.logos img { height: 40px; flex: 0 0 auto; background: #fff; }
+.logos img { height: 60px; flex: 0 0 auto; background: #fff; }
 .menu-btn { grid-column: 3; grid-row: 1; justify-self: end; display: none; background: none; border: 0; color: #ffffff; padding: 0.25rem; }
 .body { flex: 1; display: flex; min-height: 0; position: relative; }
 .sidebar { width: 220px; display: flex; flex-direction: column; background: #fff; border-right: 1px solid #dde3ea; padding: 1rem; overflow-y: auto; }
@@ -59,13 +59,13 @@ button { font: inherit; cursor: pointer; }
 .poi-legend button { display: flex; align-items: center; gap: 0.5rem; width: 100%; text-align: left; padding: 0.4rem 0.6rem; border: 0; border-radius: 6px; background: transparent; color: inherit; }
 .poi-legend button:not(:disabled):hover, .poi-legend button.hovered { background: #fff7a8; }
 .poi-legend button:disabled { cursor: default; }
-.poi-legend button:disabled .poi-legend-badge { background: #000; color: #fff; }
-.poi-legend-badge { flex: 0 0 auto; min-width: 1.6rem; height: 1.6rem; display: grid; place-items: center; border-radius: 50%; background: #ffff00; color: #000; font-size: 0.85rem; }
-.poi.static { transform: translate(-50%, -50%); color: #000; cursor: default; }
-.poi.static:hover { color: #000; z-index: auto; }
+.poi-legend button:disabled .poi-legend-badge { background: #000000; color: #fff; }
+.poi-legend-badge { flex: 0 0 auto; min-width: 1.6rem; height: 1.6rem; display: grid; place-items: center; border-radius: 50%; background: #ffff00; color: #18161b; font-size: 0.85rem; }
+.poi.static { transform: translate(-50%, -50%); color: #000000; cursor: default; }
+.poi.static:hover { color: #000000; z-index: auto; }
 .poi.static:hover .tooltip { opacity: 0; }
 .poi.static:hover .tooltip.always-visible { opacity: 1; }
-.poi-dot { display: block; width: 26px; height: 26px; border-radius: 50%; background: #000; border: 2px solid #000000; box-shadow: 0 1px 4px rgba(0,0,0,.4); }
+.poi-dot { display: block; width: 26px; height: 26px; border-radius: 50%; background: #000000; border: 2px solid #000000; box-shadow: 0 1px 4px rgba(0,0,0,.4); }
 .poi.static .poi-number { top: 50%; transform: translate(-50%, -50%); color: #fff; }
 .poi.static .tooltip { bottom: calc(100% + 4px); }
 @media (orientation: portrait) {

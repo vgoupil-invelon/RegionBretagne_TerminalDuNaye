@@ -67,7 +67,6 @@ export default function App() {
     return (
       <div className="landing" style={{ backgroundImage: `url(${resolveFloorImage(landingImage)})` }}>
         <div className="landing-content">
-          <h1>{data.projectName}</h1>
           <button className="start-btn" onClick={() => setStarted(true)}>
             Commencer la visite
           </button>
