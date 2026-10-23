@@ -49,6 +49,9 @@ export default function App() {
   const [hoveredId, setHoveredId] = useState<string | null>(null)
   const isPortrait = useIsPortrait()
   const isAerial = floorId === data.aerialView.id
+  const landingImage = isPortrait
+    ? data.landingImagePortrait ?? data.landingImage
+    : data.landingImage
   const floor = data.floors.find((f) => f.id === floorId)
   const panoramaPois = floor?.pois.filter((p) => p.panoramaUrl) ?? []
   const activeIndex = activePoi ? panoramaPois.findIndex((p) => p.id === activePoi.id) : -1
@@ -62,7 +65,7 @@ export default function App() {
 
   if (!started) {
     return (
-      <div className="landing" style={{ backgroundImage: `url(${resolveFloorImage(data.landingImage)})` }}>
+      <div className="landing" style={{ backgroundImage: `url(${resolveFloorImage(landingImage)})` }}>
         <div className="landing-content">
           <h1>{data.projectName}</h1>
           <button className="start-btn" onClick={() => setStarted(true)}>
