@@ -95,6 +95,7 @@ export default function App() {
       </header>
       <div className="body">
         <nav className={`sidebar${sidebarOpen ? ' open' : ''}`} aria-label="Étages">
+          <h2>Démarrer la visite virtuelle :</h2>
           <ul>
             {[data.aerialView, ...data.floors].map((f) => (
               <li key={f.id}>
