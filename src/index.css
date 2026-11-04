@@ -75,7 +75,7 @@ button { font: inherit; cursor: pointer; }
 }
 .onboarding-tooltip { position: fixed; z-index: 300; max-width: 240px; padding: 0.8rem 1rem; border-radius: 8px; background: #18161b; color: #fff; box-shadow: 0 4px 16px rgba(0,0,0,.35); }
 .onboarding-tooltip.right { transform: translateY(-50%); }
-.onboarding-tooltip.bottom { transform: translateX(-50%); }
+.onboarding-tooltip.bottom { max-width: calc(100vw - 16px); }
 .onboarding-tooltip p { margin: 0 0 0.6rem; }
 .onboarding-tooltip button { padding: 0.3rem 0.9rem; border: 0; border-radius: 999px; background: #ffff00; color: #000000; font-weight: 600; }
 .onboarding-arrow { position: absolute; width: 0; height: 0; border: 8px solid transparent; }

@@ -5,12 +5,16 @@ const MOBILE_QUERY = '(max-width: 720px)'
 const DESKTOP_TARGET = '[data-visits-target]'
 const MOBILE_TARGET = '.menu-btn'
 const GAP = 14
+const EDGE_MARGIN = 8
+const ARROW_SIZE = 8
 
 type Placement = 'right' | 'bottom'
 
 interface Position {
   top: number
-  left: number
+  left?: number
+  right?: number
+  arrowRight?: number
 }
 
 function hasSeen(): boolean {
@@ -52,7 +56,9 @@ export default function VisitsOnboardingTooltip() {
       if (placement === 'right') {
         setPosition({ top: r.top + r.height / 2, left: r.right + GAP })
       } else {
-        setPosition({ top: r.bottom + GAP, left: r.left + r.width / 2 })
+        const right = Math.max(EDGE_MARGIN, window.innerWidth - r.right)
+        const arrowRight = window.innerWidth - (r.left + r.width / 2) - right - ARROW_SIZE
+        setPosition({ top: r.bottom + GAP, right, arrowRight })
       }
     }
     update()
@@ -80,9 +86,13 @@ export default function VisitsOnboardingTooltip() {
       className={`onboarding-tooltip ${placement}`}
       role="tooltip"
       aria-label={message}
-      style={{ top: position.top, left: position.left }}
+      style={{ top: position.top, left: position.left, right: position.right }}
     >
-      <span className="onboarding-arrow" aria-hidden="true" />
+      <span
+        className="onboarding-arrow"
+        aria-hidden="true"
+        style={position.arrowRight !== undefined ? { right: position.arrowRight, left: 'auto', marginLeft: 0 } : undefined}
+      />
       <p>{message}</p>
       <button type="button" onClick={dismiss} aria-label="Fermer l'astuce" autoFocus>
         Compris
