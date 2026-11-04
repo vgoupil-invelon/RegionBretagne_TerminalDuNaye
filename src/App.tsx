@@ -1,3 +1,4 @@
+import VisitsOnboardingTooltip from './components/VisitsOnboardingTooltip'
 import { useEffect, useState } from 'react'
 import { Menu, MapPin, X } from 'lucide-react'
 import building from './config/building.json'
@@ -97,9 +98,10 @@ export default function App() {
         <nav className={`sidebar${sidebarOpen ? ' open' : ''}`} aria-label="Étages">
           <h2 className="sidebar-title">Démarrer la visite virtuelle :</h2>
           <ul>
-            {[data.aerialView, ...data.floors].map((f) => (
+            {[data.aerialView, ...data.floors].map((f, i) => (
               <li key={f.id}>
                 <button
+                  {...(i === 0 ? { 'data-visits-target': '' } : {})}
                   className={f.id === floorId ? 'active' : ''}
                   onClick={() => {
                     setFloorId(f.id)
@@ -189,6 +191,7 @@ export default function App() {
           )}
         </main>
       </div>
+      <VisitsOnboardingTooltip />
       {aerialPoi?.image && (
         <div className="overlay photo-overlay" role="dialog" aria-modal="true" aria-label={aerialPoi.title}>
           <img src={resolveImage(aerialPoi.image)} alt={aerialPoi.title} />
